@@ -1,0 +1,11 @@
+{  
+  "firebaseConfig": {
+    "apiKey": "AIzaSyA_mwkJjmmcllICPoS1CFTUbqVweue7ZlI",
+    "authDomain": "sounders-roster.firebaseapp.com",
+    "databaseURL": "https://sounders-roster.firebaseio.com",
+    "projectId": "sounders-roster",
+    "storageBucket": "sounders-roster.appspot.com",
+    "messagingSenderId": "550623568049",
+    "appId": "1:550623568049:web:599b8dd10171d941d28290"
+  }
+}
