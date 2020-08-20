@@ -15,7 +15,7 @@ class Auth extends React.Component {
     return (
 
         <div className="Auth">
-          <span className="auth-item" onClick={this.loginClickEvent}><i className="fas fa-user"></i></span>
+          <span className="auth-item" onClick={this.loginClickEvent}><i className="fas fa-user fa-lg"></i></span>
         </div>
     );
   }
