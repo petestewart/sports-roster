@@ -11,10 +11,12 @@ class Auth extends React.Component {
   }
 
   render() {
+    console.warn('returning login button');
     return (
-      <div className = "Auth" >
-        <button className = "btn">Login</button>
-      </div>
+
+        <div className="Auth">
+          <span className="auth-item" onClick={this.loginClickEvent}><i className="fas fa-user"></i></span>
+        </div>
     );
   }
 }

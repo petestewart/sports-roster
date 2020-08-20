@@ -1,11 +1,11 @@
 {  
   "firebaseConfig": {
-    "apiKey": "AIzaSyA_mwkJjmmcllICPoS1CFTUbqVweue7ZlI",
-    "authDomain": "sounders-roster.firebaseapp.com",
-    "databaseURL": "https://sounders-roster.firebaseio.com",
-    "projectId": "sounders-roster",
-    "storageBucket": "sounders-roster.appspot.com",
-    "messagingSenderId": "550623568049",
-    "appId": "1:550623568049:web:599b8dd10171d941d28290"
+    "apiKey": "AIzaSyCa3XxQ9q_daARBhSSiY-0qbFbN91JtC_4",
+    "authDomain": "sports-roster-ec406.firebaseapp.com",
+    "databaseURL": "https://sports-roster-ec406.firebaseio.com",
+    "projectId": "sports-roster-ec406",
+    "storageBucket": "sports-roster-ec406.appspot.com",
+    "messagingSenderId": "696528566906",
+    "appId": "1:696528566906:web:ba47e5030102cd2b7fd9c3"
   }
 }
