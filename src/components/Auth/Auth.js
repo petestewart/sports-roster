@@ -11,7 +11,6 @@ class Auth extends React.Component {
   }
 
   render() {
-    console.warn('returning login button');
     return (
 
         <div className="Auth">

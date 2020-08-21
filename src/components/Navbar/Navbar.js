@@ -27,7 +27,6 @@ class Navbar extends React.Component {
           <i className="fas fa-sign-out-alt fa-lg"></i>
           </span>;
       }
-      console.warn('not authed');
       return <Auth />;
     };
 

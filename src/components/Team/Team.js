@@ -1,5 +1,7 @@
 import React from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
+
+import Roster from '../Roster/Roster';
 
 // import authData from '../../helpers/data/authData';
 import teamData from '../../helpers/data/teamData';
@@ -7,6 +9,10 @@ import teamData from '../../helpers/data/teamData';
 import './Team.scss';
 
 class Team extends React.Component {
+  static propTypes = {
+    user: PropTypes.object.isRequired,
+  }
+
   state = {
     team: {},
   }
@@ -22,7 +28,10 @@ class Team extends React.Component {
     const { team } = this.state;
 
     return (
-      <h1>{team.name}</h1>
+      <div className="field" style={{ backgroundColor: `${team.bgcolor1}` }}>
+        <h1>{team.name}</h1>
+        <Roster team={team} />
+      </div>
     );
   }
 }

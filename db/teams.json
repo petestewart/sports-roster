@@ -1,8 +1,8 @@
 {
   "team1": {
     "name": "Sounders FC",
-    "bg-color1": "#64A70B",
-    "bg-color2": "#095796",
+    "bgcolor1": "#64A70B",
+    "bgcolor2": "#095796",
     "font-color": "white",
     "uid": "warYbTdl6cg6bzdUuuIax6DYRgx1"
   }
