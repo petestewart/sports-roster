@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import Player from '../Player/Player';
+
 import './Roster.scss';
 import playerData from '../../helpers/data/playerData';
 
@@ -21,11 +23,16 @@ class Roster extends React.Component {
 
   render() {
     const { players } = this.state;
-    const { team } = this.props;
-    if (players.length > 0) { console.warn(players[0]); }
+    // const { team } = this.props;
+    // if (players.length > 0) { console.warn(players[0]); }
+
+    const playerCards = players.map((player) => <Player key={player.id} player={player} />);
 
     return (
-    <h1>{team.name}</h1>);
+      <div className="roster">
+        { playerCards }
+      </div>
+    );
   }
 }
 
