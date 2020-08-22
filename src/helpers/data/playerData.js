@@ -12,4 +12,7 @@ const getPlayers = (teamId) => new Promise((resolve, reject) => {
     .catch((err) => reject(err));
 });
 
-export default { getPlayers };
+const deletePlayer = (playerId) => axios.delete(`${baseUrl}/players/team1/${playerId}.json`);
+// const deletePlayer = (playerId) => console.warn(playerId);
+
+export default { getPlayers, deletePlayer };

@@ -15,6 +15,10 @@ class Roster extends React.Component {
     team: PropTypes.object.isRequired,
   }
 
+  deletePlayer = (playerId) => {
+    playerData.deletePlayer(playerId);
+  };
+
   componentDidMount() {
     playerData.getPlayers('team1')
       .then((players) => this.setState({ players }))
@@ -26,7 +30,7 @@ class Roster extends React.Component {
     // const { team } = this.props;
     // if (players.length > 0) { console.warn(players[0]); }
 
-    const playerCards = players.map((player) => <Player key={player.id} player={player} />);
+    const playerCards = players.map((player) => <Player key={player.id} player={player} deletePlayer={this.deletePlayer} />);
 
     return (
       <div className="roster">
