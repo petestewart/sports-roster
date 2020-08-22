@@ -16,19 +16,23 @@ class Roster extends React.Component {
   }
 
   deletePlayer = (playerId) => {
-    playerData.deletePlayer(playerId);
+    playerData.deletePlayer(playerId)
+      .then(() => this.getPlayers())
+      .catch((err) => console.error(err));
   };
 
-  componentDidMount() {
+  getPlayers = () => {
     playerData.getPlayers('team1')
       .then((players) => this.setState({ players }))
       .catch((err) => console.error(err));
   }
 
+  componentDidMount() {
+    this.getPlayers();
+  }
+
   render() {
     const { players } = this.state;
-    // const { team } = this.props;
-    // if (players.length > 0) { console.warn(players[0]); }
 
     const playerCards = players.map((player) => <Player key={player.id} player={player} deletePlayer={this.deletePlayer} />);
 
