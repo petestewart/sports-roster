@@ -8,6 +8,12 @@ class Player extends React.Component {
     player: PropTypes.object.isRequired,
   }
 
+  deletePlayerEvent = (e) => {
+    e.preventDefault();
+    const { deletePlayer, player } = this.props;
+    deletePlayer(player.id);
+  }
+
   render() {
     const { player } = this.props;
 
@@ -17,6 +23,7 @@ class Player extends React.Component {
         <div className="card-body">
           <h5 className="card-title">{player.name}</h5>
           <p className="card-text">{player.position}</p>
+          <i className="fas fa-ban delete-player-btn" onClick={this.deletePlayerEvent}></i>
         </div>
       </div>
     );
