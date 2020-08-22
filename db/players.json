@@ -1,0 +1,70 @@
+{
+  "team1": {
+    "player1": {
+      "imageUrl": "https://seattle-mp7static.mlsdigital.net/styles/image_player_headshot/s3/Frei%202020%20Headshot%20Website.jpg",
+      "name": "Stefan Frei",
+      "position": "GK",
+      "uid": ""
+    },
+    "player2": {
+      "imageUrl": "https://seattle-mp7static.mlsdigital.net/styles/image_player_headshot/s3/Nouhou%202020%20Headshot%20Website.jpg",
+      "name": "Nouhou",
+      "position": "LB",
+      "uid": ""
+    },
+    "player3": {
+      "imageUrl": "https://seattle-mp7static.mlsdigital.net/styles/image_player_headshot/s3/Arreaga%202020%20Headshot%20Website.jpg",
+      "name": "Xavier Arreaga",
+      "position": "CBL",
+      "uid": ""
+    },
+    "player4": {
+      "imageUrl": "https://seattle-mp7static.mlsdigital.net/styles/image_player_headshot/s3/Yeimar%20Updated%20Website%20Headshot.jpg",
+      "name": "Yeimar Gómez Andrade",
+      "position": "CBR",
+      "uid": ""
+    },
+    "player5": {
+      "imageUrl": "https://seattle-mp7static.mlsdigital.net/styles/image_player_headshot/s3/Leerdam%202020%20Headshot%20Website.jpg",
+      "name": "Kelvin Leerdam",
+      "position": "RB",
+      "uid": ""
+    },
+    "player6": {
+      "imageUrl": "https://seattle-mp7static.mlsdigital.net/styles/image_player_headshot/s3/Svensson%202020%20Headshot%20Website.jpg",
+      "name": "Gustav Svensson",
+      "position": "DM",
+      "uid": ""
+    },
+    "player7": {
+      "imageUrl": "https://seattle-mp7static.mlsdigital.net/styles/image_player_headshot/s3/JP%202020%20Headshot%20Website.jpg",
+      "name": "João Paulo",
+      "position": "LM",
+      "uid": ""
+    },
+    "player8": {
+      "imageUrl": "https://seattle-mp7static.mlsdigital.net/styles/image_player_headshot/s3/Lodeiro%202020%20Headshot%20Website.jpg",
+      "name": "Nicolás Lodeiro",
+      "position": "AM",
+      "uid": ""
+    },
+    "player9": {
+      "imageUrl": "https://seattle-mp7static.mlsdigital.net/styles/image_player_headshot/s3/Cristian%20Roldan%20Headshot%20Website.jpg",
+      "name": "Cristian Roldan",
+      "position": "RM",
+      "uid": ""
+    },
+    "player10": {
+      "imageUrl": "https://seattle-mp7static.mlsdigital.net/styles/image_player_headshot/s3/Morris%202020%20Headshot%20Website.jpg",
+      "name": "Jordan Morris",
+      "position": "LF",
+      "uid": ""
+    },
+    "player11": {
+      "imageUrl": "https://seattle-mp7static.mlsdigital.net/styles/image_player_headshot/s3/Ruidiaz%202020%20Headshot%20Website.jpg",
+      "name": "Raúl Ruidíaz",
+      "position": "RF",
+      "uid": ""
+    }
+  }
+}

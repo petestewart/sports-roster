@@ -24,10 +24,9 @@ class Navbar extends React.Component {
       if (authed) {
         return <span
         className="auth-item logout-button" onClick={this.logoutClickEvent}>
-          <i className="fas fa-sign-out-alt"></i>
+          <i className="fas fa-sign-out-alt fa-lg"></i>
           </span>;
       }
-      console.warn('not authed');
       return <Auth />;
     };
 

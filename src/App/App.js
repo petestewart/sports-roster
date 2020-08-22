@@ -5,6 +5,7 @@ import 'firebase/auth';
 import fbConnection from '../helpers/data/connection';
 
 import Navbar from '../components/Navbar/Navbar';
+import Team from '../components/Team/Team';
 
 import './App.scss';
 
@@ -13,14 +14,15 @@ fbConnection();
 class App extends React.Component {
   state = {
     authed: false,
+    user: {},
   }
 
   componentDidMount() {
     this.removeListener = firebase.auth().onAuthStateChanged((user) => {
       if (user) {
-        this.setState({ authed: true });
+        this.setState({ authed: true, user });
       } else {
-        this.setState({ authed: false });
+        this.setState({ authed: false, user: {} });
       }
     });
   }
@@ -34,8 +36,7 @@ class App extends React.Component {
 
     const loadComponent = () => {
       if (authed) {
-        // return <Roster />;
-        return 'Logged In';
+        return <Team user={this.state.user}/>;
       }
       return '';
     };
