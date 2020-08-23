@@ -1,6 +1,15 @@
 .roster {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
   padding: 10px;
   justify-content: space-around;
+  height: calc(100vh - 72px);
+  margin: 0;
+}
+
+.roster > div {
+  display: flex;
+  // flex-direction: r;
+  justify-content: space-around;
+  height: 100%;
 }

@@ -18,12 +18,15 @@ class Player extends React.Component {
     const { player } = this.props;
 
     return (
-      <div className="card player-card">
-        <img className="card-img-top" src={player.imageUrl} alt={player.name} />
-        <div className="card-body">
-          <h5 className="card-title">{player.name}</h5>
-          <p className="card-text">{player.position}</p>
-          <i className="fas fa-ban delete-player-btn" onClick={this.deletePlayerEvent}></i>
+      <div className="player-card my-2">
+        <img className="player-img" src={player.imageUrl} alt={player.name} />
+        <div className="player-info">
+          <h5 className="">{player.name}</h5>
+          <div className="controls">
+            <i className="fas fa-edit edit-player-btn ml-1"></i>
+            <span>{player.position}</span>
+            <i className="fas fa-ban delete-player-btn mr-1" onClick={this.deletePlayerEvent}></i>
+          </div>
         </div>
       </div>
     );

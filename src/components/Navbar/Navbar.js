@@ -18,7 +18,7 @@ class Navbar extends React.Component {
   }
 
   render() {
-    const { authed } = this.props;
+    const { authed, team } = this.props;
 
     const authButton = () => {
       if (authed) {
@@ -32,7 +32,10 @@ class Navbar extends React.Component {
 
     return (
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a className="navbar-brand" href="/">ROSTER</a>
+        <a className="navbar-brand" href="/">
+          <img src={team.crestUrl} alt="crest" className="crest"/>
+          <h2 style={{ color: `${team.bgcolor1}` }}>{team.name}</h2>
+        </a>
         <ul className="navbar-nav ml-auto">
           <li className="nav-item">
             { authButton() }
