@@ -7,6 +7,8 @@ import fbConnection from '../helpers/data/connection';
 import Navbar from '../components/Navbar/Navbar';
 import Team from '../components/Team/Team';
 
+import teamData from '../helpers/data/teamData';
+
 import './App.scss';
 
 fbConnection();
@@ -14,13 +16,16 @@ fbConnection();
 class App extends React.Component {
   state = {
     authed: false,
+    team: {},
     user: {},
   }
 
   componentDidMount() {
     this.removeListener = firebase.auth().onAuthStateChanged((user) => {
       if (user) {
-        this.setState({ authed: true, user });
+        teamData.getTeam(user.uid)
+          .then((team) => this.setState({ authed: true, team: team[0], user }))
+          .catch((err) => console.error(err));
       } else {
         this.setState({ authed: false, user: {} });
       }
@@ -36,14 +41,14 @@ class App extends React.Component {
 
     const loadComponent = () => {
       if (authed) {
-        return <Team user={this.state.user}/>;
+        return <Team team={this.state.team} user={this.state.user}/>;
       }
       return '';
     };
 
     return (
       <div className="App">
-        <Navbar authed={authed}/>
+        <Navbar authed={authed} team={this.state.team}/>
       { loadComponent() }
       </div>
     );

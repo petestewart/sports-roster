@@ -5,6 +5,7 @@ import Player from '../Player/Player';
 
 import './Roster.scss';
 import playerData from '../../helpers/data/playerData';
+import formation from '../../helpers/formation';
 
 class Roster extends React.Component {
   state = {
@@ -34,11 +35,25 @@ class Roster extends React.Component {
   render() {
     const { players } = this.state;
 
-    const playerCards = players.map((player) => <Player key={player.id} player={player} deletePlayer={this.deletePlayer} />);
+    const lines = formation.createFormation(players);
+
+    const playerCards = (line) => line.map((player) => <Player key={player.id} player={player} deletePlayer={this.deletePlayer} />);
 
     return (
       <div className="roster">
-        { playerCards }
+
+        <div id="top">
+          { playerCards(lines.top) }
+        </div>
+        <div id="mid">
+          { playerCards(lines.mid) }
+        </div>
+        <div id="back">
+          { playerCards(lines.back) }
+        </div>
+        <div id="goal">
+          { playerCards(lines.goal) }
+        </div>
       </div>
     );
   }

@@ -10,11 +10,4 @@ const convertFirebaseCollection = (data) => {
   return arrayCollection;
 };
 
-// const convertSingleObj = (data) => {
-//   const objectCollection = data;
-//   if (objectCollection) {
-//     Object.keys(objectCollection);
-//   }
-// };
-
 export default { convertFirebaseCollection };
