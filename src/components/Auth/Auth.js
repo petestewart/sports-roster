@@ -3,21 +3,18 @@ import firebase from 'firebase/app';
 import 'firebase/auth';
 import './Auth.scss';
 
-class Auth extends React.Component {
-  loginClickEvent = (e) => {
+const Auth = () => {
+  const loginClickEvent = (e) => {
     e.preventDefault();
     const googleProvider = new firebase.auth.GoogleAuthProvider();
     firebase.auth().signInWithPopup(googleProvider);
-  }
+  };
 
-  render() {
-    return (
-
+  return (
         <div className="Auth">
-          <span className="auth-item" onClick={this.loginClickEvent}><i className="fas fa-user fa-lg"></i></span>
+          <span className="auth-item" onClick={loginClickEvent}><i className="fas fa-user fa-lg"></i></span>
         </div>
-    );
-  }
-}
+  );
+};
 
 export default Auth;

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 
 import Player from '../Player/Player';
@@ -7,56 +7,56 @@ import './Roster.scss';
 import playerData from '../../helpers/data/playerData';
 import formation from '../../helpers/formation';
 
-class Roster extends React.Component {
-  state = {
-    players: [],
-  }
+const Roster = () => {
+  const [players, setPlayers] = useState([]);
 
-  static propTypes = {
-    team: PropTypes.object.isRequired,
-  }
-
-  deletePlayer = (playerId) => {
-    playerData.deletePlayer(playerId)
-      .then(() => this.getPlayers())
+  const getPlayers = () => {
+    playerData.getPlayers('team1')
+      .then((response) => setPlayers(response))
       .catch((err) => console.error(err));
   };
 
-  getPlayers = () => {
-    playerData.getPlayers('team1')
-      .then((players) => this.setState({ players }))
+  useEffect(getPlayers, []);
+
+  const deletePlayer = (playerId) => {
+    playerData.deletePlayer(playerId)
+      .then(() => getPlayers())
       .catch((err) => console.error(err));
-  }
+  };
 
-  componentDidMount() {
-    this.getPlayers();
-  }
-
-  render() {
-    const { players } = this.state;
-
+  const linedUpCards = () => {
     const lines = formation.createFormation(players);
+    console.warn(lines);
+    const formedLines = {};
+    const lineCards = (line) => line.map((player) => <Player key={player.id} player={player} deletePlayer={deletePlayer} />);
+    formedLines.top = lineCards(lines.top);
+    formedLines.mid = lineCards(lines.mid);
+    formedLines.back = lineCards(lines.back);
+    formedLines.goal = lineCards(lines.goal);
+    console.warn(formedLines);
+    return formedLines;
+  };
 
-    const playerCards = (line) => line.map((player) => <Player key={player.id} player={player} deletePlayer={this.deletePlayer} />);
-
-    return (
+  return (
       <div className="roster">
-
         <div id="top">
-          { playerCards(lines.top) }
+          { linedUpCards().top }
         </div>
         <div id="mid">
-          { playerCards(lines.mid) }
+          { linedUpCards().mid }
         </div>
         <div id="back">
-          { playerCards(lines.back) }
+          { linedUpCards().back }
         </div>
         <div id="goal">
-          { playerCards(lines.goal) }
+          { linedUpCards().goal }
         </div>
       </div>
-    );
-  }
-}
+  );
+};
+
+Roster.propTypes = {
+  team: PropTypes.object.isRequired,
+};
 
 export default Roster;
