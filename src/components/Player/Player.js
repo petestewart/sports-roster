@@ -22,9 +22,10 @@ const Player = (props) => {
   const { player } = props;
 
   return (
-    editMode
+  <div className="player-card my-2">
+    {editMode
       ? ''
-      : <div className="player-card my-2">
+      : <>
       <img className="player-img" src={player.imageUrl} alt={player.name} />
       <div className="player-info">
         <h5 className="">{player.name}</h5>
@@ -34,6 +35,7 @@ const Player = (props) => {
           <i className="fas fa-ban delete-player-btn mr-1" onClick={deletePlayerEvent}></i>
         </div>
       </div>
+      </>}
     </div>
   );
 };
