@@ -7,12 +7,12 @@ const baseUrl = apiKeys.firebaseConfig.databaseURL;
 
 const getPlayers = (teamId) => new Promise((resolve, reject) => {
   axios.get(`${baseUrl}/players/${teamId}.json`)
-    // .then(({ data }) => console.warn('in getPlayers', data))
     .then(({ data }) => resolve(utils.convertFirebaseCollection(data)))
     .catch((err) => reject(err));
 });
 
-const deletePlayer = (playerId) => axios.delete(`${baseUrl}/players/team1/${playerId}.json`);
-// const deletePlayer = (playerId) => console.warn(playerId);
+const updatePlayer = (playerId, updatedPlayer) => axios.put(`${baseUrl}/players/team1/${playerId}.json`, updatedPlayer);
 
-export default { getPlayers, deletePlayer };
+const deletePlayer = (playerId) => axios.delete(`${baseUrl}/players/team1/${playerId}.json`);
+
+export default { getPlayers, deletePlayer, updatePlayer };

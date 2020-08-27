@@ -1,6 +1,10 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
+import PlayerForm from '../PlayerForm/PlayerForm';
+
+import playerData from '../../helpers/data/playerData';
+
 import './Player.scss';
 
 const Player = (props) => {
@@ -15,16 +19,29 @@ const Player = (props) => {
   const editPlayerEvent = (e) => {
     e.preventDefault();
     setEditMode(true);
-    const { editPlayer, player } = props;
-    editPlayer(player.id);
+    // const { editPlayer, player } = props;
+    // editPlayer(player.id);
   };
+
+  const { getPlayers } = props;
+
+  const updatePlayer = (playerId, updatedPlayer) => {
+    playerData.updatePlayer(playerId, updatedPlayer)
+      .then(() => {
+        setEditMode(false);
+        getPlayers();
+      })
+      .catch((err) => console.error(err));
+  };
+
+  const cancelEdit = () => setEditMode(false);
 
   const { player } = props;
 
   return (
   <div className="player-card my-2">
     {editMode
-      ? ''
+      ? <PlayerForm player={player} updatePlayer={updatePlayer} cancelEdit={cancelEdit} />
       : <>
       <img className="player-img" src={player.imageUrl} alt={player.name} />
       <div className="player-info">

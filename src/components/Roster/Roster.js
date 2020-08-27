@@ -24,20 +24,14 @@ const Roster = () => {
       .catch((err) => console.error(err));
   };
 
-  const editPlayer = (playerId) => {
-    console.warn(playerId);
-  };
-
   const linedUpCards = () => {
     const lines = formation.createFormation(players);
-    console.warn(lines);
     const formedLines = {};
-    const lineCards = (line) => line.map((player) => <Player key={player.id} player={player} deletePlayer={deletePlayer} editPlayer={editPlayer} />);
+    const lineCards = (line) => line.map((player) => <Player key={player.id} player={player} deletePlayer={deletePlayer} getPlayers={getPlayers} />);
     formedLines.top = lineCards(lines.top);
     formedLines.mid = lineCards(lines.mid);
     formedLines.back = lineCards(lines.back);
     formedLines.goal = lineCards(lines.goal);
-    console.warn(formedLines);
     return formedLines;
   };
 
