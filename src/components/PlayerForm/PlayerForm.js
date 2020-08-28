@@ -16,17 +16,23 @@ const PlayerForm = (props) => {
   }), [props.player.imageUrl, props.player.name, props.player.position]);
 
   const changeNameEvent = (e) => {
-    e.preventDefault();
     setName(e.target.value);
   };
 
   const changePositionEvent = (e) => {
-    e.preventDefault();
-    setPosition(e.target.value);
+    let newPosition = e.target.value.toUpperCase().substring(0, 3);
+    const firstLetter = ['A', 'C', 'D', 'G', 'L', 'M', 'R'];
+    const secondLetter = ['F', 'M', 'B', 'K'];
+    const thirdLetter = ['L', 'R'];
+    if (!firstLetter.includes(newPosition.charAt(0))) { newPosition = ''; }
+    if (newPosition.charAt(0) === 'G' && newPosition !== 'GK') { newPosition = newPosition.charAt(0); }
+    if (!secondLetter.includes(newPosition.charAt(1))) { newPosition = newPosition.charAt(0); }
+    if (!thirdLetter.includes(newPosition.charAt(2))) { newPosition = newPosition.substring(0, 2); }
+    if (!['B', 'M', 'F'].includes(newPosition.charAt(1))) { newPosition = newPosition.substring(0, 2); }
+    setPosition(newPosition);
   };
 
   const changeImageUrlEvent = (e) => {
-    e.preventDefault();
     setImageUrl(e.target.value);
   };
 
